@@ -1,0 +1,281 @@
+openapi: 3.0.0
+
+info:
+  version: 1.0.0
+  title: DC Backend API - Document Internal
+
+tags:
+  - name: Airport Shuttle Search
+  - name: Shuttle Ride Booking
+
+paths:
+  /search-shuttles:
+    get:
+      operationId: getAvailableShuttleRoutes
+      description: Get all available shuttles based on search criteria
+      tags:
+        - Airport Shuttle Search
+      parameters:
+        - in: query
+          name: departureLocation
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: The maximum number of shuttles to return. If not provided, it will return all the shuttles from the offset.
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The offset from where to return the shuttles from. The first index is 0. If not provided, it will return the shuttles from the first index.
+          schema:
+            type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetAvailableShuttleRoutesResponse"
+  /book-shuttle:
+    post:
+      operationId: bookShuttle
+      description: Book a shuttle
+      tags:
+        - Shuttle Ride Booking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookShuttleRequest"
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookShuttleResponse"
+  /bookings/{userId}:
+    get:
+      operationId: getAllBookings
+      description: Get booking list for user
+      tags:
+        - Shuttle Ride Booking
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: The maximum number of bookings to return. If not provided, it will return all bookings from the offset.
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          description: The offset from where to return the bookings from. The first index is 0. If not provided, it will return the bookings from the first index.
+          schema:
+            type: integer
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookingResponse"
+  /bookings/booking/{id}:
+    get:
+      operationId: getBookingDetail
+      description: Get booking detail
+      tags:
+        - Shuttle Ride Booking
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookingDetailResponse"
+        404:
+          description: Booking not found
+    delete:
+      operationId: cancelBooking
+      description: Cancel the booking
+      tags:
+        - Shuttle Ride Booking
+      parameters:
+        - in: path
+          required: true
+          name: id
+          schema:
+            type: string
+      responses:
+        204:
+          description: Successful deletion
+        404:
+          description: Booking not found
+    patch:
+      operationId: updateBooking
+      description: Modify booking
+      tags:
+        - Shuttle Ride Booking
+      parameters:
+        - in: path
+          required: true
+          name: id
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateBookingRequest"
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateBookingResponse"
+
+components:
+  schemas:
+    GetAvailableShuttleRoutesResponse:
+      type: object
+      required:
+        - shuttleRouteList
+      properties:
+        shuttleRouteList:
+          type: array
+          items:
+            $ref: "#/components/schemas/ShuttleRoute"
+    ShuttleRoute:
+      type: object
+      required:
+        - availableSeats
+        - departureTime
+        - airport
+      properties:
+        airport:
+          type: string
+        availableSeats:
+          type: integer
+          format: int64
+        departureTime:
+          type: string
+          format: date-time
+    BookShuttleRequest:
+      type: object
+      required:
+        - shuttleRideId
+        - departureTime
+        - name
+        - email
+        - phoneNumber
+        - numberOfPassengers
+      properties:
+        shuttleRideId:
+          type: integer
+          format: int64
+        departureTime:
+          type: string
+          format: date-time
+        name:
+          type: string
+        email:
+          type: string
+#          pattern: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+        phoneNumber:
+          type: string
+        numberOfPassengers:
+          type: integer
+          format: int64
+    BookShuttleResponse:
+      type: object
+      required:
+        - bookingId
+      properties:
+        bookingId:
+          type: integer
+          format: int64
+    BookingResponse:
+      type: object
+      required:
+        - bookingDetails
+      properties:
+        bookingDetails:
+          type: array
+          items:
+            $ref: "#/components/schemas/BookingDetail"
+    BookingDetail:
+      type: object
+      required:
+        - customer
+        - departureLocation
+        - departureDateTime
+        - numberOfPassengers
+        - modifyAble
+        - cancelled
+      properties:
+        customer:
+          $ref: "#/components/schemas/Customer"
+        departureLocation:
+          type: string
+        departureDateTime:
+          type: string
+          format: date-time
+        numberOfPassengers:
+          type: integer
+          format: int64
+        modifyAble:
+          type: boolean
+        cancelled:
+          type: boolean
+    Customer:
+      type: object
+      required:
+        - name
+        - email
+        - phoneNumber
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        phoneNumber:
+          type: string
+    BookingDetailResponse:
+      type: object
+      required:
+        - bookingDetail
+      properties:
+        bookingDetail:
+          $ref: "#/components/schemas/BookingDetail"
+    UpdateBookingRequest:
+      type: object
+      properties:
+        numberOfPassengers:
+          type: integer
+          format: int64
+        departureDateTime:
+          type: string
+          format: date-time
+    UpdateBookingResponse:
+      type: object
+      required:
+        - bookingDetail
+      properties:
+        bookingDetail:
+          $ref: "#/components/schemas/BookingDetail"
+
+
+

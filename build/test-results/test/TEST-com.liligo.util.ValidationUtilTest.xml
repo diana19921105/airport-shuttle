@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.liligo.util.ValidationUtilTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2024-08-18T06:58:11" hostname="GBSN0191.local" time="0.015">
+  <properties/>
+  <testcase name="[1] email=mdelves19ca.gov" classname="com.liligo.util.ValidationUtilTest" time="0.004"/>
+  <testcase name="[1] phoneNumber=++12 345 678" classname="com.liligo.util.ValidationUtilTest" time="0.0"/>
+  <testcase name="[2] phoneNumber=!&quot;77 567" classname="com.liligo.util.ValidationUtilTest" time="0.001"/>
+  <testcase name="[3] phoneNumber=+ 567 9876 12" classname="com.liligo.util.ValidationUtilTest" time="0.0"/>
+  <testcase name="[1] phoneNumber=:&quot;48 443" classname="com.liligo.util.ValidationUtilTest" time="0.0"/>
+  <testcase name="[2] phoneNumber=+55 560 220 2355" classname="com.liligo.util.ValidationUtilTest" time="0.0"/>
+  <testcase name="[3] phoneNumber=+7 753 280 1345" classname="com.liligo.util.ValidationUtilTest" time="0.0"/>
+  <testcase name="[4] phoneNumber=+227 588 334 0759" classname="com.liligo.util.ValidationUtilTest" time="0.0"/>
+  <testcase name="[5] phoneNumber=+36 30 385 9631" classname="com.liligo.util.ValidationUtilTest" time="0.0"/>
+  <testcase name="[6] phoneNumber=&quot;+242 683 223" classname="com.liligo.util.ValidationUtilTest" time="0.0"/>
+  <testcase name="[1] email=mdelves19@ca.gov" classname="com.liligo.util.ValidationUtilTest" time="0.001"/>
+  <testcase name="[2] email=&quot;ddeem@usda." classname="com.liligo.util.ValidationUtilTest" time="0.0"/>
+  <testcase name="[3] email=ymoninik@about.me" classname="com.liligo.util.ValidationUtilTest" time="0.001"/>
+  <testcase name="[4] email=msmithson3@reverbnation.com" classname="com.liligo.util.ValidationUtilTest" time="0.0"/>
+  <testcase name="[5] email=john1$@doe.com" classname="com.liligo.util.ValidationUtilTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

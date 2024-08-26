@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.liligo.service.ShuttleBookingServiceTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2024-08-18T06:58:11" hostname="GBSN0191.local" time="0.422">
+  <properties/>
+  <testcase name="getAllBookingsTest_LimitIsPresentOffsetIsPresent()" classname="com.liligo.service.ShuttleBookingServiceTest" time="0.165"/>
+  <testcase name="updateBooking_RemovePassengers()" classname="com.liligo.service.ShuttleBookingServiceTest" time="0.045"/>
+  <testcase name="getBooking_BookingNotFound()" classname="com.liligo.service.ShuttleBookingServiceTest" time="0.018"/>
+  <testcase name="getAllBookingsTest_LimitIsPresentOffsetNull()" classname="com.liligo.service.ShuttleBookingServiceTest" time="0.023"/>
+  <testcase name="deleteBooking_BookingNotModifiable()" classname="com.liligo.service.ShuttleBookingServiceTest" time="0.018"/>
+  <testcase name="getBookingTest()" classname="com.liligo.service.ShuttleBookingServiceTest" time="0.014"/>
+  <testcase name="createBookingTestWithExistingUser()" classname="com.liligo.service.ShuttleBookingServiceTest" time="0.038"/>
+  <testcase name="deleteBookingTest()" classname="com.liligo.service.ShuttleBookingServiceTest" time="0.022"/>
+  <testcase name="createBookingTestWithoutExistingUser()" classname="com.liligo.service.ShuttleBookingServiceTest" time="0.017"/>
+  <testcase name="updateBooking_UpdateDeparture()" classname="com.liligo.service.ShuttleBookingServiceTest" time="0.024"/>
+  <testcase name="updateBooking_AddPassengers()" classname="com.liligo.service.ShuttleBookingServiceTest" time="0.014"/>
+  <testcase name="getAllBookingsTest_LimitNullOffsetNull()" classname="com.liligo.service.ShuttleBookingServiceTest" time="0.016"/>
+  <system-out><![CDATA[2024-08-18T08:58:11.337+02:00  INFO 29794 --- [    Test worker] [                                                 ] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.liligo.service.ShuttleBookingServiceTest]: ShuttleBookingServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-08-18T08:58:11.340+02:00  INFO 29794 --- [    Test worker] [                                                 ] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.liligo.AirportShuttleApplication for test class com.liligo.service.ShuttleBookingServiceTest
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

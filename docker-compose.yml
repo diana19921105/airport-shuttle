@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  liligo-database:
+    image: mysql:8
+    container_name: liligo-database
+    environment:
+      LANG: C.UTF-8
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: 'R4ty1j3L$Z6'
+      MYSQL_HOST: '%'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./volumes/database:/var/lib/mysql
+      - ./volumes/db-init:/docker-entrypoint-initdb.d
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_0900_ai_ci']

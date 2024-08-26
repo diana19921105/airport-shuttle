@@ -1,0 +1,40 @@
+### Search shuttle
+GET http://localhost:8080/search-shuttles?departureLocation=London
+
+### Book shuttle
+POST http://localhost:8080/book-shuttle
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "phoneNumber": "+36 30 385 9631",
+  "email": "john1@doe.com",
+  "shuttleRideId": 1,
+  "departureTime": "2024-08-08T09:11:02Z",
+  "numberOfPassengers": 1
+}
+
+### Get bookings for user
+GET http://localhost:8080/bookings/7
+
+### Get booking detail
+GET http://localhost:8080/bookings/booking/12
+
+### Delete
+DELETE http://localhost:8080/bookings/booking/12
+
+### Update
+PATCH http://localhost:8080/bookings/booking/12
+Content-Type: application/json
+
+{
+  "departureDateTime": "2024-08-24T00:44:53Z"
+}
+
+### Update
+PATCH http://localhost:8080/bookings/booking/2
+Content-Type: application/json
+
+{
+  "numberOfPassengers": 4
+}

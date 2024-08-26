@@ -1,0 +1,16 @@
+.openapi-generator-ignore
+README.md
+pom.xml
+src/main/java/com/liligo/airport_shuttle/api/AirportShuttleSearchApi.java
+src/main/java/com/liligo/airport_shuttle/api/ApiUtil.java
+src/main/java/com/liligo/airport_shuttle/api/ShuttleRideBookingApi.java
+src/main/java/com/liligo/airport_shuttle/model/BookShuttleRequest.java
+src/main/java/com/liligo/airport_shuttle/model/BookShuttleResponse.java
+src/main/java/com/liligo/airport_shuttle/model/BookingDetail.java
+src/main/java/com/liligo/airport_shuttle/model/BookingDetailResponse.java
+src/main/java/com/liligo/airport_shuttle/model/BookingResponse.java
+src/main/java/com/liligo/airport_shuttle/model/Customer.java
+src/main/java/com/liligo/airport_shuttle/model/GetAvailableShuttleRoutesResponse.java
+src/main/java/com/liligo/airport_shuttle/model/ShuttleRoute.java
+src/main/java/com/liligo/airport_shuttle/model/UpdateBookingRequest.java
+src/main/java/com/liligo/airport_shuttle/model/UpdateBookingResponse.java

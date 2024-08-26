@@ -1,0 +1,90 @@
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
+plugins {
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+    id 'org.openapi.generator' version '7.4.0'
+}
+
+group = 'com.liligo.airport-shuttle'
+version = '1.0.0'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+            srcDir 'build/generated/airport-shuttle/src/main/java'
+        }
+    }
+}
+
+dependencies {
+
+    // Spring
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+
+    // Micrometer
+    implementation 'io.micrometer:micrometer-tracing'
+    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+
+    runtimeOnly 'mysql:mysql-connector-java:8.0.33'
+
+    // Swagger
+    implementation 'io.springfox:springfox-swagger2:3.0.0'
+    implementation 'io.swagger.core.v3:swagger-annotations:2.2.8'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'com.h2database:h2'
+}
+
+task openApiGenerateAirportShuttleApi(type: GenerateTask) {
+    inputSpec = "$rootDir/openapi/airport-shuttle-api.yaml"
+    generatorName = "spring"
+    generateApiDocumentation = false
+    generateModelTests = false
+    outputDir = "$buildDir/generated/airport-shuttle"
+    apiPackage = "com.liligo.airport-shuttle.api"
+    modelPackage = "com.liligo.airport-shuttle.model"
+    typeMappings = [
+            "number+double": "BigDecimal"
+    ]
+    configOptions = [
+            useSpringBoot3      : "true",
+            interfaceOnly       : "true",
+            dateLibrary         : "java8",
+            openApiNullable     : "false",
+            skipDefaultApi      : "true",
+            skipDefaultInterface: "true",
+            snapshotVersion     : "true",
+            serializableModel   : "true",
+            useTags             : "true",
+            useBeanValidation   : "false"
+    ]
+}
+
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+compileJava.dependsOn openApiGenerateAirportShuttleApi

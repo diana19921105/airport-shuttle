@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.liligo.controller.ShuttleSearchControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-08-18T06:58:11" hostname="GBSN0191.local" time="0.004">
+  <properties/>
+  <testcase name="searchTest()" classname="com.liligo.controller.ShuttleSearchControllerTest" time="0.004"/>
+  <system-out><![CDATA[2024-08-18T08:58:11.168+02:00  INFO 29794 --- [    Test worker] [                                                 ] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.liligo.controller.ShuttleSearchControllerTest]: ShuttleSearchControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-08-18T08:58:11.172+02:00  INFO 29794 --- [    Test worker] [                                                 ] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.liligo.AirportShuttleApplication for test class com.liligo.controller.ShuttleSearchControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2024-08-18T08:58:11.186+02:00  INFO 29794 --- [    Test worker] [                                                 ] c.l.c.ShuttleSearchControllerTest        : Starting ShuttleSearchControllerTest using Java 19.0.2 with PID 29794 (started by szanto.diana in /Users/szanto.diana/IdeaProjects/airport-shuttle-booking-service)
+2024-08-18T08:58:11.186+02:00  INFO 29794 --- [    Test worker] [                                                 ] c.l.c.ShuttleSearchControllerTest        : The following 1 profile is active: "test"
+2024-08-18T08:58:11.309+02:00  INFO 29794 --- [    Test worker] [                                                 ] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-08-18T08:58:11.309+02:00  INFO 29794 --- [    Test worker] [                                                 ] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-08-18T08:58:11.309+02:00  INFO 29794 --- [    Test worker] [                                                 ] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-08-18T08:58:11.312+02:00  INFO 29794 --- [    Test worker] [                                                 ] c.l.c.ShuttleSearchControllerTest        : Started ShuttleSearchControllerTest in 0.138 seconds (process running for 3.166)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
