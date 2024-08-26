@@ -79,7 +79,6 @@ public class BookingController implements ShuttleRideBookingApi {
         var response = new UpdateBookingResponse()
             .bookingDetail(bookingMapper.map(entity));
         return ResponseEntity.ok(response);
-
     }
 
 }
